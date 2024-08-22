@@ -10,8 +10,7 @@
       ports:
         - "3000:3000"
       volumes:
-        - ./:/nest_project
-        - /nest_project/node_modules
+        - ../:/app
       command: npm run start:dev
       depends_on:
         - mongo

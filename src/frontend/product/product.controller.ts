@@ -4,6 +4,6 @@ import { Controller, Get } from '@nestjs/common';
 export class ProductController {
   @Get('lists')
   async getListsProducts() {
-    return 'products page';
+    return 'Trang danh sach sam pham';
   }
 }
