@@ -1,13 +1,15 @@
 import { Module } from '@nestjs/common';
-import { ProductModule } from './product/product.module';
-import { CategoryModule } from './category/category.module';
-import { ArticleModule } from './article/article.module';
-import { MenuModule } from './menu/menu.module';
-import { TransactionModule } from './transaction/transaction.module';
-import { OrderModule } from './order/order.module';
-import { UserModule } from './user/user.module';
+import { UsersService } from './users/users.service';
+import { UsersController } from './users/users.controller';
+import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
+import { AuthController } from './auth/auth.controller';
+import { AuthService } from './auth/auth.service';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
-  imports: [ProductModule, CategoryModule, ArticleModule, MenuModule, TransactionModule, OrderModule, UserModule]
+  imports: [UsersModule, AuthModule],
+  providers: [UsersService, AuthService],
+  controllers: [UsersController, AuthController],
 })
 export class BackendModule {}
