@@ -6,21 +6,19 @@ import {
   Param,
   Put,
   Delete,
-  Query,
 } from '@nestjs/common';
 import { CreateBookDto } from './dto/create-book.dto';
 import { Book } from './schema/book.schema';
 import { BooksService } from './books.service';
 import { UpdateBookDto } from './dto/update-book.dto';
-import { Query as ExpressQuery } from 'express-serve-static-core';
 
 @Controller('books')
 export class BooksController {
   constructor(private bookService: BooksService) {}
 
   @Get()
-  async index(@Query() query: ExpressQuery): Promise<Book[]> {
-    return this.bookService.findAll(query);
+  async index(): Promise<Book[]> {
+    return this.bookService.findAll();
   }
 
   @Post('/create')
